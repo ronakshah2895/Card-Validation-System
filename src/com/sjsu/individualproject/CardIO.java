@@ -1,6 +1,7 @@
 package com.sjsu.individualproject;
 
 import com.opencsv.exceptions.CsvValidationException;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,14 +16,17 @@ class Card {
     String type;
     String error = "None";
 
-    Card (Map<String, String> cardValue) {
-        cardNumber = Long.toString(Double.valueOf(cardValue.get("CardNumber")).longValue());
-        expirationDate = cardValue.get("ExpirationDate");
-        nameOfCardHolder = cardValue.get("NameOfCardholder");
+    Card (Map<?, ?> cardValue) {
+        if (cardValue.get("CardNumber") instanceof Long)
+            cardNumber = Long.toString((Long) cardValue.get("CardNumber"));
+        else
+            cardNumber = Long.toString(Double.valueOf((String) cardValue.get("CardNumber")).longValue());
+        expirationDate = (String) cardValue.get("ExpirationDate");
+        nameOfCardHolder = (String) cardValue.get("NameOfCardholder");
     }
 }
 
-public abstract class CardReader {
+public abstract class CardIO {
 
     List<Card> validatedCards = new ArrayList<>();
 
@@ -39,5 +43,5 @@ public abstract class CardReader {
         System.out.println(card.type);
     }
 
-    abstract void read() throws IOException, CsvValidationException;
+    abstract void read() throws IOException, CsvValidationException, ParseException;
 }

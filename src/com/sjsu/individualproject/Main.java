@@ -1,18 +1,19 @@
 package com.sjsu.individualproject;
 
 import com.opencsv.exceptions.CsvValidationException;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) {
-        CardReader cardReader = new CsvReader();
+        CardIO cardIO = new JsonIO();
         try {
-            cardReader.read();
+            cardIO.read();
         } catch (IOException e) {
             System.out.println("File not found");
-        } catch (CsvValidationException e) {
+        } catch (CsvValidationException | ParseException e) {
             System.out.println("Invalid file");
         }
     }

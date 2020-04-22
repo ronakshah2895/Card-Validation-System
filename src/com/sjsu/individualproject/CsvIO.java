@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 
-public class CsvReader extends CardReader {
+public class CsvIO extends CardIO {
 
     @Override
     void read() throws IOException, CsvValidationException {
