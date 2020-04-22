@@ -2,7 +2,9 @@ package com.sjsu.individualproject;
 
 import com.opencsv.exceptions.CsvValidationException;
 import org.json.simple.parser.ParseException;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +45,5 @@ public abstract class CardIO {
         System.out.println(card.type);
     }
 
-    abstract void read() throws IOException, CsvValidationException, ParseException;
+    abstract void read() throws IOException, CsvValidationException, ParseException, ParserConfigurationException, SAXException;
 }
