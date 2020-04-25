@@ -19,9 +19,9 @@ import java.util.Map;
 public class XmlIO extends CardIO {
 
     @Override
-    void read() throws IOException, ParserConfigurationException, SAXException {
+    void read(String inputFile) throws IOException, ParserConfigurationException, SAXException {
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        Document dom = builder.parse(new File("/Users/rony/Downloads/Sample.xml"));
+        Document dom = builder.parse(new File(inputFile));
         dom.normalizeDocument();
         Element root = dom.getDocumentElement();
         NodeList cardsList = root.getElementsByTagName("row");

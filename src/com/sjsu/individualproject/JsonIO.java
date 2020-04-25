@@ -12,9 +12,9 @@ import java.util.Map;
 public class JsonIO extends CardIO {
 
     @Override
-    void read() throws IOException {
+    void read(String inputFile) throws IOException {
         Gson jsonBuilder = new Gson();
-        JsonArray cardsList = jsonBuilder.fromJson(new FileReader("/Users/rony/Downloads/Sample.json"), JsonArray.class);
+        JsonArray cardsList = jsonBuilder.fromJson(new FileReader(inputFile), JsonArray.class);
         for (JsonElement cardObject : cardsList) {
             Map<String, String> cardValue = new HashMap<>();
             JsonObject jsonCardObject = cardObject.getAsJsonObject();

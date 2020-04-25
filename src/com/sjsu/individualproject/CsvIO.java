@@ -13,8 +13,8 @@ import java.util.Map;
 public class CsvIO extends CardIO {
 
     @Override
-    void read() throws IOException, CsvValidationException {
-        CSVReaderHeaderAware cardValues = new CSVReaderHeaderAware(new FileReader("/Users/rony/Downloads/Sample.csv"));
+    void read(String inputFile) throws IOException, CsvValidationException {
+        CSVReaderHeaderAware cardValues = new CSVReaderHeaderAware(new FileReader(inputFile));
         Map<String, String> cardValue = cardValues.readMap();
         while (cardValue != null) {
             Card card = new Card(cardValue);

@@ -41,6 +41,6 @@ public abstract class CardIO {
         validatedCards.add(card);
     }
 
-    abstract void read() throws IOException, CsvValidationException, ParserConfigurationException, SAXException;
+    abstract void read(String inputFile) throws IOException, CsvValidationException, ParserConfigurationException, SAXException;
     abstract void write() throws IOException, ParserConfigurationException, TransformerException;
 }

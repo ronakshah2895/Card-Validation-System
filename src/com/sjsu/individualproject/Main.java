@@ -10,9 +10,17 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        CardIO cardIO = new CsvIO();
+        String inputFile = args[0];
+        String inputExt = inputFile.substring(inputFile.lastIndexOf('.') + 1);
+        CardIO cardIO;
+        switch (inputExt) {
+            case "csv": cardIO = new CsvIO(); break;
+            case "json": cardIO = new JsonIO(); break;
+            case "xml": cardIO = new XmlIO(); break;
+            default: System.out.println("Invalid file"); return;
+        }
         try {
-            cardIO.read();
+            cardIO.read(inputFile);
         } catch (IOException e) {
             System.out.println("File not found");
         } catch (CsvValidationException | ParserConfigurationException | SAXException e) {
