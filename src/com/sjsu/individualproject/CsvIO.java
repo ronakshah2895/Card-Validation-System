@@ -24,8 +24,8 @@ public class CsvIO extends CardIO {
     }
 
     @Override
-    void write() throws IOException {
-        File outFile = new File("out.csv");
+    void write(String outputFile) throws IOException {
+        File outFile = new File(outputFile);
         outFile.createNewFile();
         CSVWriter csvWriter = new CSVWriter(new FileWriter(outFile, false), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
         String[] headerRecord = {"CardNumber", "CardType", "Error"};

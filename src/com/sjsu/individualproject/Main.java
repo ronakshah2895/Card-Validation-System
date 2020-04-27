@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
         String inputFile = args[0];
         String inputExt = inputFile.substring(inputFile.lastIndexOf('.') + 1);
+        String outputFile = args[1];
         CardIO cardIO;
         switch (inputExt) {
             case "csv": cardIO = new CsvIO(); break;
@@ -27,7 +28,7 @@ public class Main {
             System.out.println("Invalid file");
         }
         try {
-            cardIO.write();
+            cardIO.write(outputFile);
         } catch (IOException | TransformerException | ParserConfigurationException e) {
             System.out.println("Error creating file");
         }

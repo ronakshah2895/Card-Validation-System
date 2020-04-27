@@ -27,8 +27,8 @@ public class JsonIO extends CardIO {
     }
 
     @Override
-    void write() throws IOException {
-        File outFile = new File("out.json");
+    void write(String outputFile) throws IOException {
+        File outFile = new File(outputFile);
         outFile.createNewFile();
         FileWriter jsonWriter = new FileWriter(outFile, false);
         Gson jsonBuilder = new GsonBuilder().setPrettyPrinting().create();

@@ -37,8 +37,8 @@ public class XmlIO extends CardIO {
     }
 
     @Override
-    void write() throws ParserConfigurationException, TransformerException, IOException {
-        File outFile = new File("out.xml");
+    void write(String outputFile) throws ParserConfigurationException, TransformerException, IOException {
+        File outFile = new File(outputFile);
         outFile.createNewFile();
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document dom = builder.newDocument();

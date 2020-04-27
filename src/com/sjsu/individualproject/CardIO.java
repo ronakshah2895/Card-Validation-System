@@ -26,5 +26,5 @@ public abstract class CardIO {
     }
 
     abstract void read(String inputFile) throws IOException, CsvValidationException, ParserConfigurationException, SAXException;
-    abstract void write() throws IOException, ParserConfigurationException, TransformerException;
+    abstract void write(String outputFile) throws IOException, ParserConfigurationException, TransformerException;
 }
