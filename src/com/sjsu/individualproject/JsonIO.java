@@ -12,7 +12,7 @@ import java.util.Map;
 public class JsonIO extends CardIO {
 
     @Override
-    void read(String inputFile) throws IOException {
+    public void read(String inputFile) throws IOException {
         Gson jsonBuilder = new Gson();
         JsonArray cardsList = jsonBuilder.fromJson(new FileReader(inputFile), JsonArray.class);
         for (JsonElement cardObject : cardsList) {
@@ -27,7 +27,7 @@ public class JsonIO extends CardIO {
     }
 
     @Override
-    void write(String outputFile) throws IOException {
+    public void write(String outputFile) throws IOException {
         File outFile = new File(outputFile);
         outFile.createNewFile();
         FileWriter jsonWriter = new FileWriter(outFile, false);

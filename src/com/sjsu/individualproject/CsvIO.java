@@ -13,7 +13,7 @@ import java.util.Map;
 public class CsvIO extends CardIO {
 
     @Override
-    void read(String inputFile) throws IOException, CsvValidationException {
+    public void read(String inputFile) throws IOException, CsvValidationException {
         CSVReaderHeaderAware cardValues = new CSVReaderHeaderAware(new FileReader(inputFile));
         Map<String, String> cardValue = cardValues.readMap();
         while (cardValue != null) {
@@ -24,7 +24,7 @@ public class CsvIO extends CardIO {
     }
 
     @Override
-    void write(String outputFile) throws IOException {
+    public void write(String outputFile) throws IOException {
         File outFile = new File(outputFile);
         outFile.createNewFile();
         CSVWriter csvWriter = new CSVWriter(new FileWriter(outFile, false), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);

@@ -19,7 +19,7 @@ import java.util.Map;
 public class XmlIO extends CardIO {
 
     @Override
-    void read(String inputFile) throws IOException, ParserConfigurationException, SAXException {
+    public void read(String inputFile) throws IOException, ParserConfigurationException, SAXException {
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document dom = builder.parse(new File(inputFile));
         dom.normalizeDocument();
@@ -37,7 +37,7 @@ public class XmlIO extends CardIO {
     }
 
     @Override
-    void write(String outputFile) throws ParserConfigurationException, TransformerException, IOException {
+    public void write(String outputFile) throws ParserConfigurationException, TransformerException, IOException {
         File outFile = new File(outputFile);
         outFile.createNewFile();
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
