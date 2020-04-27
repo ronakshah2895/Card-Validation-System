@@ -47,7 +47,7 @@ public class XmlIO extends CardIO {
         for (Card card: validatedCards) {
             Element row = dom.createElement("row");
             Element cardNumber = dom.createElement("CardNumber");
-            cardNumber.appendChild(dom.createTextNode(String.format("%.2E", Double.valueOf(card.cardNumber))));
+            cardNumber.appendChild(dom.createTextNode(card.initialCardNumber));
             row.appendChild(cardNumber);
             Element cardType = dom.createElement("CardType");
             cardType.appendChild(dom.createTextNode(card.type));

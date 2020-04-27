@@ -31,8 +31,7 @@ public class CsvIO extends CardIO {
         String[] headerRecord = {"CardNumber", "CardType", "Error"};
         csvWriter.writeNext(headerRecord);
         for(Card card: validatedCards) {
-            String cardNumber = String.format("%.2E", Double.valueOf(card.cardNumber));
-            String[] record = {cardNumber, card.type, card.error};
+            String[] record = {card.initialCardNumber, card.type, card.error};
             csvWriter.writeNext(record);
         }
         csvWriter.close();

@@ -35,7 +35,7 @@ public class JsonIO extends CardIO {
         JsonArray jsonList = new JsonArray();
         for (Card card: validatedCards) {
             JsonObject cardObj = new JsonObject();
-            cardObj.addProperty("CardNumber", Long.valueOf(card.cardNumber));
+            cardObj.addProperty("CardNumber", card.initialCardNumber);
             cardObj.addProperty("CardType", card.type);
             cardObj.addProperty("Error", card.error);
             jsonList.add(cardObj);
