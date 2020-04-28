@@ -3,7 +3,7 @@ A java based card validation system.
 
 ## Running
 
-To run the project, download the jar from the compiled folder and run the following command. The project is tested with Java versions 12+.
+To run the project, download the jar from the compiled folder and run the following command. The project is tested with Java versions 13+.
 
 ```
 java -jar <path_to_project_jar> <path_to_inputfile> <path_to_ouputfile>
